@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
 using namespace std;
 
 struct Patient {
@@ -19,32 +20,29 @@ void readPatientFile(Patient patientInfo[], int& numPatients) {
 
 		while (getline(patientFile, line)) {
 			numPatients++;
-			}
+			} 
 			for (int i = 0; i < numPatients; i++) {
 
-				patientFile >> patientInfo[i];
-
-				getline(patientFile, line)
+				getline(patientFile,line);
 
 				cout << line << endl;
+			
+				//printf("line %n: %s", numPatients, line);
 			}
 			patientFile.close();
 		}
-
-		cout << patientInfo[1] << endl;
-	}
 }
 
-//void printPatientFile(Patient patientInfo[], int numPatients) {
+/*void printPatientFile(Patient patientInfo[], int numPatients) {
 
-//	for (int i = 0;i < numPatients; i++) {
+	for (int i = 0;i < numPatients; i++) {
 
-//		cout << patientInfo[i].firstName << " " << patientInfo[i].lastName << endl;
+		cout << patientInfo[i].firstName << " " << patientInfo[i].lastName << endl;
 
-//	}
+	}
 
 
-//}
+}*/
 
 /*int checkTemps(Patient patientInfo[], int numPatients, string n, float& average) {
 
@@ -62,6 +60,5 @@ int main() {
 
 	//printPatientFile(patientInfo, numPatients);
 
-	cout << numPatients << endl;
 	return 0;
 }
