@@ -9,12 +9,27 @@ struct Patient {
 	float temps[4];
 };
 
-void
+void readPatientFile(Patient p[], int& c) {
+
+
+}
+
+void printPatients(Patient p[], int c) {
+
+
+}
+
+int checkTemps(Patient p[], int c, string n, float& average) {
+
+	return 0;
+}
 
 int main() {
 
-	int numPatients = 0;
+	int numPatients = 8;
 	int average;
+
+	/*
 	string line;
 
 	ifstream patientFile;
@@ -23,7 +38,7 @@ int main() {
 
 		while (getline(patientFile,line)) {
 			numPatients++;
-			//cout << numPatients << endl;
+			cout << numPatients << endl;
 		}
 		patientFile.close();
 	}
@@ -32,7 +47,11 @@ int main() {
 
 	//cout << numPatients << endl;
 
-	Patient p[] = { ar };
+	*/
+
+	Patient patientInfo[8];
+
+	readPatientFile(Patient patientInfo[8], numPatients);
 
 
 
