@@ -9,23 +9,32 @@ struct Patient {
 	float temps[4];
 };
 
+void
+
 int main() {
 
 	int numPatients = 0;
 	int average;
+	string line;
 
 	ifstream patientFile;
 	patientFile.open("patientFile.txt");
 	if (patientFile.is_open()) {
 
-		while (!patientFile.eof()) {
+		while (getline(patientFile,line)) {
 			numPatients++;
-			cout << numPatients << endl;
+			//cout << numPatients << endl;
 		}
 		patientFile.close();
 	}
 
-	cout << numPatients << endl;
+	int arraySize = numPatients;
+
+	//cout << numPatients << endl;
+
+	Patient p[] = { ar };
+
+
 
 	return 0;
 }
