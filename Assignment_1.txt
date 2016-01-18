@@ -1,0 +1,35 @@
+Assignment 1
+
+
+This assignment is a review of COP1334 skills.  
+
+Download and examine file ‘patientFile.txt’.  It represents data for patients on the floor of a hospital.  Each record, i.e. row, has the patient’s last name, first name and the last four temperature readings.
+
+Your program is to read the file into an array of struct and print out the first and last names of all the patients.  Then your program will prompt for a last name and print the average of the four temperatures for that patient to an accuracy of two decimal places.  Your program will prompt in a loop until the user enters ‘stop’.
+
+Use this as the struct:
+struct Patient {
+	string lastName;
+	string firstName;
+	float temps [4];
+};
+
+It is not enough for your program to meet the operational requirements of the problem.  You must also demonstrate you’re ability to write functions.  
+
+void readPatientFile (Patient p [], int& c)
+This function reads the patient file into the array p and returns the number of patients in variable c.
+
+void printPatients (Patient p [], int c) 
+This function prints the first and last names of all the patients in array p.
+
+void checkTemps (Patient p [], int c, string n, float& average) 
+This function searches the array p for the patient whose last name is n and returns the average of patient n’s four temperature readings.  If patient n is not found, return 0.  Note: If you prefer, you can write this as a value returning function.
+
+Program design is important.
+Programs that are otherwise correct, but do not decompose the problem using the specified functions will receive a maximum grade of 85.
+
+Programs that are otherwise correct, but do not use an array of Patient to hold the file data will receive a maximum grade of 60.
+
+Submissions that do not compile will receive a grade of 0. 
+
+Sample output on next page.
