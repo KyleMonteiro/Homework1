@@ -12,8 +12,7 @@ struct Patient {
 void readPatientFile(Patient patientInfo[], int& numPatients) {
 	string line;
 	ifstream patientFile;
-
-	patientFile.open(patientFileName);
+	patientFile.open("patientFile.txt");
 
 	if (patientFile.is_open()) {
 		while (getline(patientFile, line)) {
@@ -40,24 +39,15 @@ void readPatientFile(Patient patientInfo[], int& numPatients) {
 }*/
 
 int main() {
-	string const patientFileName = "patientFile.txt";
-	int const maxPatients = 100;
-
 	int numPatients = 0;
-	int average = 0;
-	Patient* patientInfo = new Patient[maxPatients];
+	int average;
 
-	// Parse each line of our text file, 'patientFileName', into 'patientInfo' and the number of lines
-	// into 'numPatients':
+	Patient* patientInfo = new Patient[8];
+
 	readPatientFile(patientInfo, numPatients);
+
 	//printPatientFile(patientInfo, numPatients);
 
-	// Print number of patients:
-	cout << "Number of patients found in '" << patientFileName << "': " << numPatients << endl;
-	
-	// Wait for 'Enter' to be pressed before exiting:
-	//printf("Press 'Enter' to close this damn window...");
-	cout << "Press 'Enter' to close this damn window...";
-	getchar();
+	cout << numPatients << endl;
 	return 0;
 }
