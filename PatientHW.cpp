@@ -18,7 +18,8 @@ struct Patient {
 // Converts a line of text into a Patient struct.
 // - Will fail horribly if 'line' does not have exactly six space-delimited tokens (words).
 Patient parsePatientText(string line) {
-	printf("Parsing line: '%s'...\n", line.c_str());
+	// [DEBUG] Print the input string:
+	//printf("Parsing line: '%s'...\n", line.c_str());
 
 	// Create a stream wrapper for our input string so that we can parse through it:
 	std::istringstream iss(line);
@@ -30,7 +31,7 @@ Patient parsePatientText(string line) {
 	getline(iss, patient.firstName, ' ');
 	getline(iss, patient.lastName, ' ');
 
-	// Take the next four tokens, convert them to floats, then store in our struct:
+	// Take the next four tokens, convert them to floats, then store each in our struct:
 	for (int t = 0; t < TEMP_READINGS; t++) {
 		string temp_str;
 		getline(iss, temp_str, ' ');
@@ -55,12 +56,13 @@ void readPatientFile(Patient patients[], int& numPatients) {
 			if (numPatients >= PATIENT_MAX)
 				throw new range_error("Too many patients!");
 
-			//// [DEBUG] Print each line of our patients file:
+			// [DEBUG] Print each line of our patients file:
 			//cout << "Patient " << numPatients << ": " << line << endl;
 
 			// Parse each line into our 'database' of patients:
 			patients[numPatients] = parsePatientText(line);
-
+			
+			// Increment our patient count:
 			numPatients++;
 		}
 
@@ -102,11 +104,11 @@ int main() {
 	readPatientFile(patients, numPatients);
 	printPatients(patients, numPatients);
 
-	// Print number of patients:
-	cout << endl << "Number of patients found in '" << patientFileName << "': " << numPatients << endl;
-	
+	// [DEBUG] Print number of patients:
+	//cout << endl << "Number of patients found in '" << patientFileName << "': " << numPatients << endl;
+
 	// Wait for 'Enter' to be pressed before exiting:
-	cout << "Press 'Enter' to close...";
+	cout << endl << "Press 'Enter' to close..." << endl;
 	getchar();
 	return 0;
 }
