@@ -17,19 +17,20 @@ void readPatientFile(Patient p[], int& c) {
 	patientFile.open("patientFile.txt");
 	if (patientFile.is_open()) {
 
-		while (getline(patientFile,line)) {
+		while (getline(patientFile, line)) {
 			c++;
+			}
+			/*for (int i = 0; i < c; i++) {
+				patientFile >> p[i];
+			}
+			patientFile.close();
 		}
-		for (int i = 0; i < c; i++) {
-			patientFile >> p[c];
-		}
-		patientFile.close();
-	}
 
-	cout << p[1] << endl;
+		cout << p[1] << endl;*/
+	}
 }
 
-void printPatients(Patient p[], int c) {
+/*void printPatientFile(Patient p[], int c) {
 
 	for (int i = 0;i < c; i++) {
 
@@ -38,23 +39,22 @@ void printPatients(Patient p[], int c) {
 	}
 
 
-}
+}*/
 
-int checkTemps(Patient p[], int c, string n, float& average) {
+/*int checkTemps(Patient p[], int c, string n, float& average) {
 
 	return 0;
-}
+}*/
 
 int main() {
 
 	int numPatients = 0;
 	int average;
 
-	Patient* patientInfo;
+	Patient* patientInfo = (Patient*)malloc(8);
 
 	readPatientFile(patientInfo, numPatients);
 
-	printPatientFile(patientInfo, numPatients);
-
+	//printPatientFile(patientInfo, numPatients);
 	return 0;
 }
