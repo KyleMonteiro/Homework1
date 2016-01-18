@@ -1,0 +1,8 @@
+jones james 98.9 99.9 100.4 101.3
+perez mary 100.5 101.3 105.2 99.4
+mitchel mike 97.3 98.5 97.8 100.3
+valdez jose 98.5 99.1 97.3 97.4
+williams marcus 102.4 101.3 99.4 98.7
+gonzlez lourdes 99.2 97.4 98.5 99.9
+kelly tamara 104.2 101.3 102.4 99.8
+vidovic teresa 99.3 97.3 99.4 101.2
