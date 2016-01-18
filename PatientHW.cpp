@@ -62,21 +62,22 @@ void printPatientFile(Patient patientInfo[], int numPatients) {
 
 int checkTemps(Patient patientInfo[], int numPatients, string userSelection, float& average) {
 
+	float sum_total = 0;
+
 	for (int i = 0; i < numPatients; i++) {
 		if (userSelection == patientInfo[i].lastName) {
 			for (int il = 0; il < TEMP_READINGS;il++) {
-				average = average + patientInfo[i].temps[il];
+				sum_total = sum_total + patientInfo[i].temps[il];
 			}
 		} //else if ((i == (numPatients - 1)) && (userSelection != patientInfo[i].lastName)) {
 
 			//cout << "Last name didn't match any patient record, please enter a valid patient." << endl;
-
-		//	average = 2.00; //2 Is an ErrorFlag.
-
+			//sum_total = 2; //2 Is an ErrorFlag.
+			//average = sum_total;
 				//return average;
 		//} 
 	}
-	average = (average / TEMP_READINGS);
+	average = (sum_total / (float)(TEMP_READINGS));
 	return average;
 }
 
@@ -84,7 +85,7 @@ int main() {
 
 	string userSelection = ("none");
 	int numPatients = 0;
-	float average = 0;
+	float ErrorLevel = 2;
 	Patient* patientInfo = new Patient[PATIENT_MAX];
 
 	readPatientFile(patientInfo, numPatients);
@@ -97,6 +98,8 @@ int main() {
 
 	while (userSelection != "stop") {
 
+		float average = 0;
+
 		cout << "Please enter the last name of the patient you want to check (Case Sensitive): " << endl;
 		cin >> userSelection;
 		if (userSelection == "stop") {
@@ -105,7 +108,7 @@ int main() {
 
 		average = checkTemps(patientInfo, numPatients, userSelection, average);
 
-		if (average == 2.00) {
+		if (average == ErrorLevel) {
 			return 0;
 		} else {
 			cout << setprecision(2) << fixed;
