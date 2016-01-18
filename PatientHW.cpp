@@ -3,6 +3,9 @@
 #include <fstream>
 using namespace std;
 
+string const patientFileName = "patientFile.txt";
+int const maxPatients = 100;
+
 struct Patient {
 	string lastName;
 	string firstName;
@@ -40,9 +43,6 @@ void readPatientFile(Patient patientInfo[], int& numPatients) {
 }*/
 
 int main() {
-	string const patientFileName = "patientFile.txt";
-	int const maxPatients = 100;
-
 	int numPatients = 0;
 	int average = 0;
 	Patient* patientInfo = new Patient[maxPatients];
