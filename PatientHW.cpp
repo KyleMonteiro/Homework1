@@ -15,23 +15,23 @@ void readPatientFile(Patient patientInfo[], int& numPatients) {
 
 	ifstream patientFile;
 	patientFile.open("patientFile.txt");
+
 	if (patientFile.is_open()) {
 
 		while (getline(patientFile, line)) {
 			numPatients++;
-			}
-			for (int i = 0; i < numPatients; i++) {
-
-				patientFile >> patientInfo[i];
-
-				getline(patientFile, line)
-
-				cout << line << endl;
-			}
-			patientFile.close();
 		}
 
-		cout << patientInfo[1] << endl;
+		for (int i = 0; i < numPatients; i++) {
+
+			// patientFile >> patientInfo[i];
+
+			getline(patientFile, line);
+
+			cout << line << endl;
+		}
+
+		patientFile.close();
 	}
 }
 
@@ -56,7 +56,7 @@ int main() {
 	int numPatients = 0;
 	int average;
 
-	Patient* patientInfo = (Patient*)malloc(8);
+	Patient* patientInfo = new Patient[8];
 
 	readPatientFile(patientInfo, numPatients);
 
